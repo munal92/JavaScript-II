@@ -38,27 +38,62 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
   console.log(test2); // "this Pencil is worth a million dollars!"
 */
 
-
+//**********************************************************************************  1  */
 function getLength(arr, cb) {
   // getLength passes the length of the array into the callback.
+
+  return cb(arr.length);
 }
+
+getLength(items, (nwArray) => { console.log(nwArray); });
+
+//**********************************************************************************  2  */
 
 function last(arr, cb) {
   // last passes the last item of the array into the callback.
+        return cb(arr[arr.length-1]);
+
 }
+
+last(items, (lastItem) => { console.log(lastItem); });
+
+//**********************************************************************************  3  */
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
+  return cb(x+ y);
 }
+sumNums ( 12,34, (sumN) => {   console.log(sumN );  });
+
+//**********************************************************************************  4 */
 
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
+  return cb(x*y);
 }
+
+multiplyNums (10,12, function(getMultply){
+  console.log(getMultply);
+}   );
+
+//**********************************************************************************  5  */
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+  if(list.includes(item)){
+    return cb(true);
+  } else {
+    return cb(false);
+  }
 }
+
+contains ( "Notebook",items , function(checkIt){
+  console.log(checkIt);
+});
+
+
+//**********************************************************************************  stretch   */
 
 /* STRETCH PROBLEM */
 
@@ -66,4 +101,22 @@ function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+
+  let fnlArry = [];
+  
+  array.forEach(function(item){
+    if(fnlArry.includes(item) === false){
+      fnlArry.push(item); 
+  }
+  });
+  
+
+return cb(fnlArry);
 }
+
+removeDuplicates(items, function(finalArry){
+
+console.log(finalArry);
+
+
+});

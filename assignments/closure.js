@@ -3,7 +3,16 @@
 // Keep it simple! Remember a closure is just a function
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
+let firstName='Sam';
+let lastName='Smith';
 
+
+
+function getFullName(){
+  return  (`${firstName} ${lastName}`);
+}
+
+console.log(getFullName());
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
@@ -20,6 +29,22 @@ const counterMaker = () => {
 // Example usage: const myCounter = counterMaker();
 // myCounter(); // 1
 // myCounter(); // 2
+
+let count = 0 ;
+
+
+const myCounter = counterMaker(
+  
+  function Counter (){
+
+  count++;
+  console.log(count);
+  return count;
+
+}
+);
+
+myCounter();
 
 // ==== Challenge 3: Make `counterMaker` more sophisticated ====
 // It should have a `limit` parameter. Any counters we make with `counterMaker`
